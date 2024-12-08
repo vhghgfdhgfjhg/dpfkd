@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepFake Detection Results</title>
+    <link rel="stylesheet" href="static/css/styles.css"> <!-- Link to external CSS for styling -->
+</head>
+<body>
+    <header>
+        <h1>DeepFake Detection Results</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="my_submissions.html">My Submissions</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="result-summary">
+            <h2>Summary of Results</h2>
+            <p>File Uploaded: <strong id="uploaded-file-name">{{ uploaded_file_name }}</strong></p>
+            <p>Submission Time: <strong id="submission-time">{{ submission_time }}</strong></p>
+        </section>
+
+        <section class="detection-results">
+            <h2>Detection Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Detector</th>
+                        <th>Likelihood Score</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in detection_results %}
+                    <tr>
+                        <td>{{ result.detector }}</td>
+                        <td><span class="score">{{ result.score }}</span></td>
+                        <td><span class="status">{{ result.status }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <section class="detailed-report">
+            <h2>Detailed Report</h2>
+            <p>For a comprehensive detection report, including prediction scores and method descriptions, please refer to the <a href="detailed_report.pdf">detailed report</a>.</p>
+        </section>
+
+        <section class="supplementary-info">
+            <h2>Supplementary Information</h2>
+            <p>Data Source: <strong>{{ data_source }}</strong></p>
+            <p>Ground Truth: <strong>{{ ground_truth }}</strong></p>
+            <p>Background Information: <strong>{{ background_info }}</strong></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DeepFake Detection Application. All rights reserved.</p>
+    </footer>
+</body>
+</html>
