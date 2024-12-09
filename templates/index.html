@@ -1,13 +1,23 @@
-<!-- templates/index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deepfake Detection</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-    <h1>Upload a Video for Deepfake Detection</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-       
+    <div class="container">
+        <h1>Deepfake Video Detection</h1>
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="file" id="video-upload" accept="video/*" required>
+            <button type="submit">Detect Deepfake</button>
+        </form>
+        <div id="result-container" style="display:none;">
+            <h2>Detection Result</h2>
+            <p id="accuracy-result"></p>
+            <p id="fake-real-status"></p>
+        </div>
+    </div>
+    <script src="/static/js/upload.js"></script>
+</body>
+</html>
